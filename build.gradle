@@ -36,5 +36,5 @@ dependencies {
 
 
 bootRun {
-	addResources = true
+	sourceResources(sourceSets.main)
 }
