@@ -37,15 +37,22 @@
     <hr />
 
 
-    <div th:if="${jobs} and ${jobs.size()}">
+    <div th:fragment="div">
 
-        <table class="job-listing" th:each="job, idx : ${jobs}" th:class="${idx.odd} ? 'odd'">
-                <tr th:each="column : ${job}" th:class="${idx.odd} ? 'odd'">
-                    <!--<td th:class="@{/search/results(column=${searchType},value=${searchTerm})}" th:text="${job}"></td>-->
-                <td th:text="${column.key}"></td>
-                <td th:text="${column.value}"></td>
-                </tr>
-        </table>
+        <div  th:if="${jobs} and ${jobs.size()}">
+
+            <h3 th:text="${jobs.size() + ' Result(s)'}"></h3>
+
+                <table class="job-listing" th:each="job : ${jobs}" >
+
+                        <tr th:each="column : ${job}">
+                            <td th:text="${column.key}"></td>
+                            <td th:text="${column.value}"></td>
+                        </tr>
+
+                </table>
+
+        </div>
 
     </div>
 
